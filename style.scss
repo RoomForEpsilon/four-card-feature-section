@@ -1,0 +1,80 @@
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    // Primary
+
+--Red: hsl(0, 78%, 62%);
+--Cyan: hsl(180, 62%, 55%);
+--Orange: hsl(34, 97%, 64%);
+--Blue: hsl(212, 86%, 64%);
+
+// Neutral
+
+--Grey-500: hsl(234, 12%, 34%);
+--Grey-400: hsl(212, 6%, 44%);
+--White: hsl(0, 0%, 100%);
+
+--semibold: 600;
+--extra-light: 200;
+
+}
+// Semibold, extra-light, regular
+
+@font-face {
+    font-family: Poppins, sans-serif;
+    src: url(./Poppins/Poppins-Black.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Poppins, sans-serif;
+    src: url(./Poppins/Poppins-SemiBold.ttf);
+    font-weight: var(--semibold);
+}
+
+@font-face {
+    font-family: Poppins, sans-serif;
+    src: url(./Poppins/Poppins-ExtraLight.ttf);
+    font-weight: var(--extra-light);
+}
+
+@mixin textPresetOneTwo {
+    font-family: Poppins;
+    font-size: 2.25rem;
+    line-height: 1.4;
+    letter-spacing: .25px; 
+}
+
+.text-preset-1 {
+    @include textPresetOneTwo(); 
+    font-weight: var(--semibold);
+}
+
+.text-preset-2 {
+    @include textPresetOneTwo();
+    font-weight: var(--extra-light);
+}
+
+.text-preset-3 {
+    font-family: Poppins;
+    font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: var(--semibold);
+}
+
+.text-preset-4 {
+    font-family: Poppins;
+    font-size: calc(15/16 * 1rem);
+    line-height: 1.4;
+}
+
+.text-preset-5 {
+    font-family: Poppins;
+    font-size: calc(13.16 * 1rem);
+    line-height: 1.6;
+}

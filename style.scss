@@ -3,25 +3,31 @@
 *::after {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
+
+$mobile-max-width: 660px;
+$tablet-max-width: 1240px;
 
 :root {
     // Primary
 
---Red: hsl(0, 78%, 62%);
---Cyan: hsl(180, 62%, 55%);
---Orange: hsl(34, 97%, 64%);
---Blue: hsl(212, 86%, 64%);
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: hsl(212, 86%, 64%);
 
-// Neutral
+    // Neutral
 
---Grey-500: hsl(234, 12%, 34%);
---Grey-400: hsl(212, 6%, 44%);
---White: hsl(0, 0%, 100%);
+    --Grey-500: hsl(234, 12%, 34%);
+    --Grey-400: hsl(212, 6%, 44%);
+    --White: hsl(0, 0%, 100%);
 
---semibold: 600;
---extra-light: 200;
+    --semibold: 600;
+    --extra-light: 200;
 
+    $mobile-max-width: 660px;
+    $tablet-max-width: 1240px;
 }
 // Semibold, extra-light, regular
 
@@ -48,12 +54,17 @@
     font-size: 2.25rem;
     line-height: 1.4;
     letter-spacing: .25px; 
+
+    @media (width <= $mobile-max-width) {
+        font-size: 1.5rem;
+    }
 }
 
 .text-preset-1 {
     @include textPresetOneTwo(); 
     font-weight: var(--semibold);
 }
+
 
 .text-preset-2 {
     @include textPresetOneTwo();
@@ -75,6 +86,96 @@
 
 .text-preset-5 {
     font-family: Poppins;
-    font-size: calc(13.16 * 1rem);
+    font-size: calc(13/16 * 1rem);
     line-height: 1.6;
+}
+
+
+body {
+    background-color: var(--White);
+    color: var(--Grey-500);
+}
+
+// Header styles
+@mixin mobileWidth {
+    width: calc(316/375 * 100%);
+}
+
+header {
+    margin: 3.75rem auto;
+    @include mobileWidth();
+}
+
+header {
+    h1, p {
+        text-align: center;
+    }
+}
+
+header span {
+    display: block;
+}
+
+// Universal card styles
+.card-wrapper {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    list-style-type: none;
+}
+.card {
+    @include mobileWidth();
+    margin: 2rem auto;
+    padding: 2rem 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .25rem 0 rgb(0 0 0 / 25%);
+}
+
+.card p {
+    color: var(--Grey-400);
+}
+
+.card img {
+    display: block;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+@mixin topBorder($color) {
+    border-top: .25rem solid $color;
+}
+
+// Specific card Styles
+#supervisor-card {
+    @include topBorder(var(--Cyan));
+}
+
+#team-builder-card {
+    @include topBorder(var(--Red));
+}
+
+#karma-card {
+    @include topBorder(var(--Orange));
+}
+
+#calculator-card {
+    @include topBorder(var(--Blue));
+}
+
+
+
+.attribution { 
+    font-size: 0.6875rem; 
+    text-align: center; 
+    @include mobileWidth();
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .25rem 0 rgb(0 0 0 / 25%);
+    // border-top-color: rgb(0 0 0 / 25%);
+    border-top: 1px solid rgb(0 0 0 / 25%);
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
 }

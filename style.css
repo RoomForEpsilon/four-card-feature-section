@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+  --Grey-500: hsl(234, 12%, 34%);
+  --Grey-400: hsl(212, 6%, 44%);
+  --White: hsl(0, 0%, 100%);
+  --semibold: 600;
+  --extra-light: 200;
+}
+
+@font-face {
+  font-family: Poppins, sans-serif;
+  src: url(./Poppins/Poppins-Black.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Poppins, sans-serif;
+  src: url(./Poppins/Poppins-SemiBold.ttf);
+  font-weight: var(--semibold);
+}
+@font-face {
+  font-family: Poppins, sans-serif;
+  src: url(./Poppins/Poppins-ExtraLight.ttf);
+  font-weight: var(--extra-light);
+}
+.text-preset-1 {
+  font-family: Poppins;
+  font-size: 2.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+}
+@media (width <= 660px) {
+  .text-preset-1 {
+    font-size: 1.5rem;
+  }
+}
+.text-preset-1 {
+  font-weight: var(--semibold);
+}
+
+.text-preset-2 {
+  font-family: Poppins;
+  font-size: 2.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+}
+@media (width <= 660px) {
+  .text-preset-2 {
+    font-size: 1.5rem;
+  }
+}
+.text-preset-2 {
+  font-weight: var(--extra-light);
+}
+
+.text-preset-3 {
+  font-family: Poppins;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  font-weight: var(--semibold);
+}
+
+.text-preset-4 {
+  font-family: Poppins;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.text-preset-5 {
+  font-family: Poppins;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+body {
+  background-color: var(--White);
+  color: var(--Grey-500);
+}
+
+header {
+  margin: 3.75rem auto;
+  width: 84.2666666667%;
+}
+
+header h1, header p {
+  text-align: center;
+}
+
+header span {
+  display: block;
+}
+
+.card-wrapper {
+  list-style-type: none;
+}
+
+.card {
+  width: 84.2666666667%;
+  margin: 2rem auto;
+  padding: 2rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.card p {
+  color: var(--Grey-400);
+}
+
+.card img {
+  display: block;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
+#supervisor-card {
+  border-top: 0.25rem solid var(--Cyan);
+}
+
+#team-builder-card {
+  border-top: 0.25rem solid var(--Red);
+}
+
+#karma-card {
+  border-top: 0.25rem solid var(--Orange);
+}
+
+#calculator-card {
+  border-top: 0.25rem solid var(--Blue);
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  width: 84.2666666667%;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*# sourceMappingURL=style.css.map */

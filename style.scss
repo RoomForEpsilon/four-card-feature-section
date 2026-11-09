@@ -3,6 +3,7 @@
 *::after {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 $mobile-max-width: 660px;
@@ -117,8 +118,10 @@ header span {
 
 // Universal card styles
 .card-wrapper {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
     list-style-type: none;
 }
 .card {
@@ -162,5 +165,17 @@ header span {
 
 
 
-.attribution { font-size: 0.6875rem; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { 
+    font-size: 0.6875rem; 
+    text-align: center; 
+    @include mobileWidth();
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .25rem 0 rgb(0 0 0 / 25%);
+    // border-top-color: rgb(0 0 0 / 25%);
+    border-top: 1px solid rgb(0 0 0 / 25%);
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}

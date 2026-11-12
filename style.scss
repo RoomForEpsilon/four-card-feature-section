@@ -34,18 +34,21 @@ $extra-light: 200;
     font-family: Poppins;
     src: url(./Poppins/Poppins-Regular.ttf);
     font-weight: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: Poppins;
     src: url(./Poppins/Poppins-SemiBold.ttf);
     font-weight: $semibold;
+    font-display: swap; 
 }
 
 @font-face {
     font-family: Poppins;
     src: url(./Poppins/Poppins-ExtraLight.ttf);
     font-weight: $extra-light;
+    font-display: swap;
 }
 
 @mixin textPresetOneTwo {
@@ -153,19 +156,19 @@ header span {
 }
 
 // Specific card styles
-#supervisor-card {
+.supervisor-card {
     @include topBorder(var(--Cyan));
 }
 
-#team-builder-card {
+.team-builder-card {
     @include topBorder(var(--Red));
 }
 
-#karma-card {
+.karma-card {
     @include topBorder(var(--Orange));
 }
 
-#calculator-card {
+.calculator-card {
     @include topBorder(var(--Blue));
 }
 
@@ -203,25 +206,25 @@ header span {
         margin: 0px;
     }
 
-    #team-builder-card {
+    .team-builder-card {
         grid-row: 1 / 2;
         grid-column: 2 / span 2;
         margin: 0 auto;
     }
 
-    #supervisor-card {
+    .supervisor-card {
         grid-row: 2 / 3;
         grid-column: 1 / span 2;
         justify-self: end;
         align-self: end;
     }
 
-    #karma-card {
+    .karma-card {
         grid-row: 2 / 3;
         grid-column: 3 / span 2;
     }
 
-    #calculator-card {
+    .calculator-card {
         grid-row: 3 / 4;
         grid-column: 2 / span 2;
         margin: 0 auto;
@@ -251,23 +254,23 @@ header span {
         width: 100%;
     }
 
-    #team-builder-card {
+    .team-builder-card {
         grid-row: 1 / span 2;
         grid-column: 2 / span 1;
         margin: 0 auto;
     }
 
-    #supervisor-card {
+    .supervisor-card {
         grid-area: 2 / 1 / span 2 / span 1;
         justify-self: end;
     }
 
-    #karma-card {
+    .karma-card {
         grid-area: 3 / 2 / span 2 / span 1;
         margin: 0 auto;
     }
 
-    #calculator-card {
+    .calculator-card {
         grid-area: 2 / 3 / span 2 / span 1;
     }
 

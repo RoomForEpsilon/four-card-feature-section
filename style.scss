@@ -7,9 +7,12 @@
 }
 
 $mobile-max-width: 660px;
-$tablet-max-width: 1240px;
+$tablet-max-width: 1240px;    
 
-:root {
+$semibold: 600;
+$extra-light: 200;
+
+    :root {
     // Primary
 
     --Red: hsl(0, 78%, 62%);
@@ -22,35 +25,31 @@ $tablet-max-width: 1240px;
     --Grey-500: hsl(234, 12%, 34%);
     --Grey-400: hsl(212, 6%, 44%);
     --White: hsl(0, 0%, 100%);
+    --Background-White: #FAFAFA;
 
-    --semibold: 600;
-    --extra-light: 200;
-
-    $mobile-max-width: 660px;
-    $tablet-max-width: 1240px;
+    --Poppins: Poppins, sans-serif;
 }
 // Semibold, extra-light, regular
-
 @font-face {
-    font-family: Poppins, sans-serif;
-    src: url(./Poppins/Poppins-Black.ttf);
+    font-family: Poppins;
+    src: url(./Poppins/Poppins-Regular.ttf);
     font-weight: normal;
 }
 
 @font-face {
-    font-family: Poppins, sans-serif;
+    font-family: Poppins;
     src: url(./Poppins/Poppins-SemiBold.ttf);
-    font-weight: var(--semibold);
+    font-weight: $semibold;
 }
 
 @font-face {
-    font-family: Poppins, sans-serif;
+    font-family: Poppins;
     src: url(./Poppins/Poppins-ExtraLight.ttf);
-    font-weight: var(--extra-light);
+    font-weight: $extra-light;
 }
 
 @mixin textPresetOneTwo {
-    font-family: Poppins;
+    font-family: var(--Poppins);
     font-size: 2.25rem;
     line-height: 1.4;
     letter-spacing: .25px; 
@@ -62,38 +61,43 @@ $tablet-max-width: 1240px;
 
 .text-preset-1 {
     @include textPresetOneTwo(); 
-    font-weight: var(--semibold);
+    font-weight: $semibold;
 }
 
 
 .text-preset-2 {
     @include textPresetOneTwo();
-    font-weight: var(--extra-light);
+    font-weight: $extra-light;
 }
 
 .text-preset-3 {
-    font-family: Poppins;
+    font-family: var(--Poppins);
     font-size: 1.25rem;
     line-height: 1.35;
-    font-weight: var(--semibold);
+    font-weight: $semibold;
 }
 
 .text-preset-4 {
-    font-family: Poppins;
+    font-family: var(--Poppins);
     font-size: calc(15/16 * 1rem);
     line-height: 1.4;
 }
 
 .text-preset-5 {
-    font-family: Poppins;
+    font-family: var(--Poppins);
     font-size: calc(13/16 * 1rem);
     line-height: 1.6;
 }
 
 
 body {
-    background-color: var(--White);
+    background-color: var(--Background-White);
     color: var(--Grey-500);
+    width: 100%;
+}
+
+main, .card-wrapper {
+    width: 100%;
 }
 
 // Header styles
@@ -104,11 +108,15 @@ body {
 header {
     margin: 3.75rem auto;
     @include mobileWidth();
+    max-width: 19.75rem;
 }
 
 header {
     h1, p {
         text-align: center;
+    }
+    h1 {
+        margin-bottom: 1rem;
     }
 }
 
@@ -118,10 +126,6 @@ header span {
 
 // Universal card styles
 .card-wrapper {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
     list-style-type: none;
 }
 .card {
@@ -130,6 +134,8 @@ header span {
     padding: 2rem 2rem;
     border-radius: .5rem;
     box-shadow: 0 .25rem .25rem 0 rgb(0 0 0 / 25%);
+    background-color: var(--White);
+    max-width: 19.625rem;
 }
 
 .card p {
@@ -163,8 +169,6 @@ header span {
     @include topBorder(var(--Blue));
 }
 
-
-
 .attribution { 
     font-size: 0.6875rem; 
     text-align: center; 
@@ -173,9 +177,99 @@ header span {
     margin: 1rem auto;
     border-radius: .5rem;
     box-shadow: 0 .25rem .25rem 0 rgb(0 0 0 / 25%);
-    // border-top-color: rgb(0 0 0 / 25%);
-    border-top: 1px solid rgb(0 0 0 / 25%);
+    background-color: var(--White);
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+@media ($mobile-max-width <= width <= $tablet-max-width) {
+
+    header {
+        width: calc(540/668 * 100%);
+        max-width: 33.75rem;
+    }
+
+    .card-wrapper {
+        margin: 4.625rem auto 0;
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+        width: calc(660/768 * 100%);
+        grid-gap: 1rem;
+    }
+
+    .card {
+        margin: 0px;
+    }
+
+    #supervisor-card {
+        grid-row: 1 / 2;
+        grid-column: 2 / span 2;
+        margin: 0 auto;
+    }
+
+    #team-builder-card {
+        grid-row: 2 / 3;
+        grid-column: 1 / span 2;
+        justify-self: end;
+        align-self: end;
+    }
+
+    #karma-card {
+        grid-row: 2 / 3;
+        grid-column: 3 / span 2;
+    }
+
+    #calculator-card {
+        grid-row: 3 / 4;
+        grid-column: 2 / span 2;
+        margin: 0 auto;
+    }
+}
+
+@media (width > $tablet-max-width) {
+
+    header {
+        width: calc(540/668 * 100%);
+        max-width: 33.75rem;
+    }
+
+    .card-wrapper {
+        max-width: 81.25rem;
+        width: calc(1114/1440 * 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+
+    .card {
+        margin: 0px;
+        max-width: 100vw;
+        // width: calc(350/1114 * 100%);
+        width: 100%;
+    }
+
+    #team-builder-card {
+        grid-row: 1 / span 2;
+        grid-column: 2 / span 1;
+        margin: 0 auto;
+    }
+
+    #supervisor-card {
+        grid-area: 2 / 1 / span 2 / span 1;
+        justify-self: end;
+    }
+
+    #karma-card {
+        grid-area: 3 / 2 / span 2 / span 1;
+        margin: 0 auto;
+    }
+
+    #calculator-card {
+        grid-area: 2 / 3 / span 2 / span 1;
+    }
+
+    .attribution {
+        max-width: 81.25rem;    }
 }

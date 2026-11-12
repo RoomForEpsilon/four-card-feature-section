@@ -236,7 +236,7 @@ header span {
     grid-area: 2/3/span 2/span 1;
   }
   .attribution {
-    max-width: 81.25rem;
+    max-width: 70rem;
   }
 }
 
